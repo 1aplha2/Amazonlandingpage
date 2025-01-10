@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #ff9900;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .slides {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            height: 500px;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-30%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 40%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .arrow-left {
+            left: 10px;
+        }
+        .arrow-right {
+            right: 10px;
+        }
+        .product-details h2 {
+            color: #555;
+            margin: 10px 0;
+        }
+        .product-details p {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .cta-button a {
+            text-decoration: none;
+            color: white;
+            background-color: #ff9900;
+            padding: 15px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .cta-button a:hover {
+            background-color: #cc7a00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Joautrial</h1>
+    </header>
+    <div class="container">
+        <div class="slider">
+            <div class="slides">
+                <!-- Replace these URLs with Amazon image links -->
+                <img src="https://m.media-amazon.com/images/I/51x+0B9jhRL._AC_SX679_.jpg" alt="Product Image 1">
+                <img src="https://m.media-amazon.com/images/I/71Cu9A32joL._AC_SX466_.jpg" alt="Product Image 2">
+                <img src="https://m.media-amazon.com/images/I/710l-kd-OSL._AC_SX466_.jpg" alt="Product Image 3">
+                <img src="https://m.media-amazon.com/images/I/81-t4HF-sDL._AC_SX466_.jpg" alt="Product Image 4">
+                <img src="https://m.media-amazon.com/images/I/71KV3tefOlL._AC_SX466_.jpg" alt="Product Image 5">
+                <!-- <img src="https://m.media-amazon.com/images/I/71KV3tefOlL._AC_SX466_.jpg" alt="Product Image 6"> -->
+                <img src="https://m.media-amazon.com/images/I/71yrOY4mL+L._AC_SX466_.jpg" alt="Product Image 6">
+                <h2>Smart Watch for Men Women, 1.85" HD Smartwatch (Answer/Make Call),Activity Fitness Tracker with Heart Rate Sleep Monitor Pedometer,100+ Sport Modes, Fitness Watch for Android iPhone (Black)</h2>
+                 <h1>Joautrial</h1>
+
+            </div>
+            <button class="arrow arrow-left" onclick="prevSlide()">&#10094;</button>
+            <button class="arrow arrow-right" onclick="nextSlide()">&#10095;</button>
+        </div>
+        <div class="product-details">
+            <h2>Smart watch</h2>
+            <p>Elevate your lifestyle with the Joautrial Smartwatch, a sleek and powerful device designed to keep you connected, motivated, and on track with your goals. Featuring an elegant, modern design, this smartwatch offers a range of smart features that seamlessly integrate with your daily routine for further details please visit our Amazon store</p>
+        </div>
+        <div class="cta-button">
+            <a href="https://amzn.to/408Q8bf" target="_blank">Buy Now on Amazon</a>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index < 0) {
+                currentIndex = totalSlides - 1; // Loop to the last slide
+            } else if (index >= totalSlides) {
+                currentIndex = 0; // Loop back to the first slide
+            } else {
+                currentIndex = index;
+            }
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+    </script>
+</body>
+</html>
